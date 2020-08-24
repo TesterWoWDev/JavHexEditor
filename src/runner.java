@@ -11,13 +11,14 @@ public class runner {
         else {
             proofOfConcept("C:\\Users\\PC\\IdeaProjects\\hexEditing\\Abyssal_Outland.m2");
             System.out.println("Use this on a commandline, put your m2 as the argument.");
+            System.out.println("Or write a bat script to iterate them all in a folder");
         }
     }
 
     public static void proofOfConcept(String arg1) throws IOException {
         readInFile(arg1);
         //either works
-        String hex = Integer.toHexString(304);
+        String hex = intToHex(304);
         //String hex = "193";//dont include the 0x or the h ex.0x193h -> 193
         printAtAddress(hex, 5);
         replaceStringAtAddress(hex, "trash");
@@ -28,8 +29,12 @@ public class runner {
         printAtAddress(hex, 5);
         insertStringAtEndOfFile("trash");
         insertBytesAtEndOfFile("772129");//no spaces for the bytes
-        printAtAddress(Integer.toHexString(fileContent.length-10), 10);
+        printAtAddress(intToHex(fileContent.length-8), 8);
         saveFile();
+    }
+
+    public static String intToHex(int intake){
+        return Integer.toHexString(intake);
     }
 
     public static String returnString(String input){

@@ -24,7 +24,8 @@ public class runner {
         replaceStringAtAddress(hex, "trash");
         printAtAddress(hex, 5);
         String value = getAtAddress(hex,5);
-        System.out.println(value);
+        System.out.println(value);//gets direct value, so you get get and set with it
+        insertBytesAtEndOfFile(value);
         replaceBytesAtAddress(hex,"885533");
         printAtAddress(hex, 5);
         insertStringAtEndOfFile("trash");
